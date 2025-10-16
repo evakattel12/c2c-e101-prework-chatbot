@@ -71,5 +71,6 @@ def main():
     user_introduction()
     bot_prompt()
 
-main() To Set Up An Account With Us \n 4. Exit\n"))
+main()
+
 
