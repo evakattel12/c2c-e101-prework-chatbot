@@ -1,12 +1,15 @@
-name = ""
-age = 0
+# TODO: Implement sign up and log in system into function login_system. - EK 10/15/25
+
 ###     FUNCTION DEFINITIONS     ###
 
 def user_introduction():
+    name = ""
+    age = 0
     print("Hello, I am Dora, welcome to the Financia Bank Chatbot! You may sign up to access advanced chatbot options.")
     name = input("Please enter your name: ")
     age = int(input("Please enter your age: "))
     print(f"Thank you for providing this information. You are {name} and you are {age} years old.")
+    return name and age
 
 def bot_prompt():
     help_user = int(input("How can I help you?\n 1. Sign up\n 2. Log In \n 3. How To Set Up An Account With Us \n 4. Exit\n"))
@@ -63,11 +66,10 @@ def advanced_features(feature_num):
             print("Thank you for checking out Financia Bank! We hope to see you soon!")
             bot_run = False
         else:
-            feature_num = int(input("Invalid input. 1. Bank Account Information\n 2. Financial Planning\n 3. Cards, Accounts, & Rates\n 4. Exit"))
+            feature_num = input("Invalid input. 1. Bank Account Information\n 2. Financial Planning\n 3. Cards, Accounts, & Rates\n 4. Exit")
 
 def main():
     user_introduction()
     bot_prompt()
 
 main()
-
