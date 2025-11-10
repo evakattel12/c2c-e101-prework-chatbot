@@ -1,40 +1,41 @@
 # TODO: Implement sign up and log in system into function login_system. - EK 10/15/25
-
+name = ""
+age = ""
 ###     FUNCTION DEFINITIONS     ###
 
-def user_introduction():
-    name = ""
-    age = 0
+def user_introduction(): # This function lets the user input their name and age, which is then returned to the global variables for further use.
     print("Hello, I am Dora, welcome to the Financia Bank Chatbot! You may sign up to access advanced chatbot options.")
     name = input("Please enter your name: ")
     age = int(input("Please enter your age: "))
     print(f"Thank you for providing this information. You are {name} and you are {age} years old.")
     return name and age
 
-def bot_prompt():
-    help_user = int(input("How can I help you?\n 1. Sign up\n 2. Log In \n 3. How To Set Up An Account With Us \n 4. Exit\n"))
+def bot_prompt(): # This function prompts the user with 4 base choices. It only moves to advanced features once logged in.
+    help_user = input("How can I help you?\n 1. Sign up\n 2. Log In \n 3. How To Set Up An Account With Us \n 4. Exit\n")
     user_prompt(help_user)
 
-def user_prompt(user_response):
+def user_prompt(user_response): # This function displays different outputs for each of the four inputs. The first one is for signing up, the second is for logging in once you signed up, the third is to learn how to make a basic account with or without signing in, and the fourth is the exit.
     bot_run = True
     while bot_run:
-        if (user_response==1):
+        if (user_response=="1"):
             username_signup = input("You seem to be a new user, please sign up with your username here: ")
             user_signup_password = input("Password: ")
             print("Thanks for creating an account! Please log into your new account to access advanced options.")
-            user_response = int(input("How can I help you?\n 1. Sign up\n 2. Log In \n 3. How To Set Up An Account With Us \n 4. Exit\n"))
-        elif (user_response==2):
+            user_response = input("How can I help you?\n 1. Sign up\n 2. Log In \n 3. How To Set Up An Account With Us \n 4. Exit\n")
+        elif (user_response=="2"):
             login_system(username_signup, user_signup_password)
-        elif (user_response==3):
-            print("Connecting you to customer service: ") # Tutorial response TBA for response #3.
+        elif (user_response=="3"):
+            print("Connecting you to customer service...") # Tutorial response TBA for response #3.
+            print("Connected.")
+            print("Hello! ")
             user_response = int(input("How can I help you?\n 1. Sign up\n 2. Log In \n 3. How To Set Up An Account With Us \n 4. Exit\n"))
-        elif (user_response==4):
+        elif (user_response=="4"):
             print("Thank you for checking out Financia Bank! We hope to see you soon!")
             bot_run = False
         else:
-            user_response = int(input("Invalid input. How can I help you?\n 1. Sign up\n 2. Log In \n 3. How To Set Up An Account With Us \n 4. Exit\n"))
+            user_response = input("Invalid input. How can I help you?\n 1. Sign up\n 2. Log In \n 3. How To Set Up An Account With Us \n 4. Exit\n")
 
-def login_system(username_signup, user_signup_password):
+def login_system(username_signup, user_signup_password): # This function lets the user log into their account and access the advanced features.
     username_login = username_signup
     userpass_login = user_signup_password
     print("Please log in.")
@@ -49,16 +50,14 @@ def login_system(username_signup, user_signup_password):
             adv_features = int(input("1. Bank Account Information\n 2. Financial Planning\n 3. Cards, Accounts, & Rates\n 4. Exit"))
             advanced_features(adv_features)
 
-def advanced_features(feature_num):
+def advanced_features(feature_num): # This function uses the advanced features of the account and bot to show 4 more options. The first 
     bot_run = True
     while bot_run:
         if (feature_num==1):
-            username_signup = input("You seem to be a new user, please sign up with your username here: ")
-            user_signup_password = input("Password: ")
             print("Thanks for creating an account! Please log into your new account to access advanced options.")
             feature_num = int(input("1. Bank Account Information\n 2. Financial Planning\n 3. Cards, Accounts, & Rates\n 4. Exit"))
         elif (feature_num==2):
-            login_system(username_signup, user_signup_password)
+            print("Here is a comparison of your account using both compound ")
         elif (feature_num==3):
             print("Connecting you to customer service: ") # Tutorial response TBA for response #3.
             feature_num = int(input("1. Bank Account Information\n 2. Financial Planning\n 3. Cards, Accounts, & Rates\n 4. Exit"))
